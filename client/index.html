@@ -1,0 +1,40 @@
+<html ng-app="contactsApp">
+
+<head>
+    <title>Node Mongo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="contactsController">
+    <br>
+    <div class="row col-md-12">
+        <div class="col-md-4">
+            <form ng-submit="saveContact(contact)">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" class="form-control" ng-model="contact.first_name">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Last Name" class="form-control" ng-model="contact.last_name">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Website" class="form-control" ng-model="contact.website">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <ui class="list-group">
+                <li class="list-group-item" ng-repeat="contact in contacts">
+                    <h4>{{contact.first_name + ' ' + contact.last_name}}</h4>
+                    <p>{{contact.website}}</p>
+                    <p><button class="btn btn-primary" ng-click="deleteContact(contact.id)">Delete</button></p>
+                </li>
+            </ui>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
